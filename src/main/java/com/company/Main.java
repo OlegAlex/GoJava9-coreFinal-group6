@@ -1,5 +1,9 @@
 package com.company;
 
+import com.company.settings.CacheSettings;
+import com.company.settings.JsonSaveAndLoad;
+import com.company.settings.SuperSettings;
+import com.company.settings.WorkTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -15,6 +19,15 @@ public class Main extends Application {
         launch(args);
     }
 
+    public void youTubeMain (Pane root){
+//code here
+
+
+        SuperSettings superSettings = new SuperSettings();
+        superSettings = new CacheSettings();
+        JsonSaveAndLoad.save("settings/cachesettings.json", superSettings);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         Pane root = new Pane();         // создаем пустую панель
@@ -25,5 +38,6 @@ public class Main extends Application {
         primaryStage.setHeight(HEIGHT);
         primaryStage.setX(Screen.getPrimary().getBounds().getWidth() - primaryStage.getWidth());
         primaryStage.show();            // отображаем окно
+        youTubeMain(root);
     }
 }
